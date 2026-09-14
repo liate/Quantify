@@ -1,0 +1,471 @@
+:root {
+    --bg-color: #F8FAFC;
+    --card-bg: #FFFFFF;
+    --text-main: #0F172A;
+    --text-muted: #64748B;
+    --algebra-color: #2563EB;
+    --algebra-bg: #DBEAFE;
+    --geometry-color: #059669;
+    --geometry-bg: #D1FAE5;
+    --border-color: #E2E8F0;
+    --border-radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+/* --- ШАПКА НА ВСЮ ШИРИНУ --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    width: 100%;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-main);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: var(--algebra-color);
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+/* Кнопки и выпадающий список в шапке */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background: var(--algebra-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1D4ED8;
+}
+
+.lang-select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.lang-select {
+    appearance: none;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px 30px 8px 12px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-main);
+    cursor: pointer;
+    outline: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+/* --- ЛЕЙАУТ ПРИЛОЖЕНИЯ (РАСТЯНУТ ДО КРАЕВ) --- */
+.app-container {
+    display: flex;
+    gap: 32px;
+    width: 100%;
+    padding: 24px 32px; /* Паддинги от краев экрана */
+    align-items: flex-start;
+}
+
+/* --- САЙДБАР СЛЕВА --- */
+.sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    position: sticky;
+    top: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.sidebar h3 {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    color: var(--text-main);
+}
+
+.topic-list {
+    list-style: none;
+}
+
+.topic-item {
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    transition: all 0.2s ease;
+}
+
+.topic-item:hover {
+    background: #F1F5F9;
+    color: var(--text-main);
+}
+
+.topic-item.active {
+    background: var(--algebra-color);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* --- ПРАВАЯ ОБЛАСТЬ С КОНТЕНТОМ --- */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем заголовки, поиск и кнопки по центру правой области */
+    min-width: 0;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.hero p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+/* Поиск */
+.search-box {
+    width: 100%;
+    max-width: 720px;
+    margin-bottom: 24px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 1.05rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    outline: none;
+    background: white;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+}
+
+.search-input:focus {
+    border-color: var(--algebra-color);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.12);
+}
+
+/* Фильтры */
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 28px;
+    width: 100%;
+}
+
+.view-toggle, .subject-toggle {
+    display: flex;
+    gap: 4px;
+    background: #E2E8F0;
+    padding: 4px;
+    border-radius: 10px;
+}
+
+.view-btn, .subject-btn {
+    padding: 8px 18px;
+    border: none;
+    background: transparent;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    color: var(--text-muted);
+}
+
+.view-btn.active, .subject-btn.active-all {
+    background: white;
+    color: var(--text-main);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.subject-btn.active-algebra {
+    background: var(--algebra-color);
+    color: white;
+}
+
+.subject-btn.active-geometry {
+    background: var(--geometry-color);
+    color: white;
+}
+
+.class-selector {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.class-chip {
+    padding: 6px 16px;
+    border: 1px solid #CBD5E1;
+    background: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+}
+
+.class-chip:hover,
+.class-chip.active {
+    background: var(--text-main);
+    color: white;
+    border-color: var(--text-main);
+}
+
+/* --- СЕТКА КАРТОЧЕК --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.card {
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+    border-color: var(--algebra-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.card-hint {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+}
+
+.card-details {
+    display: none;
+    cursor: default;
+}
+
+.card.expanded .card-hint {
+    display: none;
+}
+
+.card.expanded .card-details {
+    display: block;
+}
+
+.card p {
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-top: 12px;
+}
+
+.card mjx-container {
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+
+.fav-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #CBD5E1;
+    transition: color 0.2s, transform 0.1s;
+    line-height: 1;
+    padding: 0;
+}
+
+.fav-btn:hover {
+    transform: scale(1.15);
+}
+
+.fav-btn.active {
+    color: #F59E0B;
+}
+
+/* --- ПЕЧАТЬ (ШПАРГАЛКА) --- */
+/*Стало:*/
+@media print {
+    .header, .sidebar, .hero, .search-box, .filters, .fav-btn, .calculator-box, .card-hint {
+        display: none !important;
+    }
+
+    .card-details {
+        display: block !important;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+        padding: 0;
+        margin: 0;
+    }
+
+    .app-container {
+        display: block !important;
+        padding: 0 !important;
+    }
+
+    .main-content {
+        width: 100% !important;
+    }
+
+    .grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 8px !important;
+    }
+
+    .card {
+        border: 1px solid #000 !important;
+        box-shadow: none !important;
+        padding: 6px 10px !important;
+        page-break-inside: avoid;
+        border-radius: 4px !important;
+    }
+}
+.details-card {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #E2E8F0;
+}
+.calculator-box {
+    margin-top: 20px;
+    background: #F8FAFC;
+    padding: 16px;
+    border-radius: 8px;
+}
+.formula-legend {
+    margin-top: 12px;
+    padding: 12px 14px;
+    background: #F1F5F9;
+    border-left: 3px solid var(--algebra-color);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #475569;
+}
+.formula-legend strong {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--text-main);
+    font-size: 0.85rem;
+}
+.formula-legend ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+}
+.formula-legend li {
+    white-space: nowrap;
+}
+.calc-input {
+    width: 100%;
+    padding: 8px 12px;
+    margin: 6px 0 12px 0;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/* --- ПУСТОЕ СОСТОЯНИЕ (ничего не выбрано) --- */
+.empty-state {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 24px;
+    color: var(--text-muted);
+    background: var(--card-bg);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.empty-state-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.empty-state h3 {
+    font-size: 1.25rem;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    font-size: 0.95rem;
+    max-width: 360px;
+}

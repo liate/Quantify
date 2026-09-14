@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantify — формулы по математике 5-11 класс</title>
+    <meta name="description" content="Quantify — удобный справочник формул по математике для 5-11 классов: алгебра, геометрия, тригонометрия, производные и интегралы. Быстрый поиск, шпаргалка в один клик.">
+    <link rel="canonical" href="https://quantify-5dv.pages.dev/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Quantify — формулы по математике 5-11 класс">
+    <meta property="og:description" content="Удобный справочник формул по математике: алгебра, геометрия, тригонометрия, производные и интегралы. Быстрый поиск и шпаргалка в один клик.">
+    <meta property="og:image" content="https://quantify-5dv.pages.dev/og-image.png">
+    <meta property="og:url" content="https://quantify-5dv.pages.dev/">
+    <meta property="og:site_name" content="Quantify">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quantify — формулы по математике 5-11 класс">
+    <meta name="twitter:description" content="Удобный справочник формул по математике: алгебра, геометрия, тригонометрия, производные и интегралы.">
+    <meta name="twitter:image" content="https://quantify-5dv.pages.dev/og-image.png">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Quantify",
+      "url": "https://quantify-5dv.pages.dev/",
+      "description": "Удобный справочник формул по математике для 5-11 классов: алгебра, геометрия, тригонометрия, производные и интегралы.",
+      "inLanguage": "ru",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://quantify-5dv.pages.dev/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Шапка на всю ширину страницы -->
+    <header class="header">
+        <a href="#" class="logo">Quant<span>ify</span></a>
+        <div class="header-actions">
+            <div class="lang-select-wrapper">
+                <select class="lang-select" id="langSelect">
+                    <option value="ru" selected>RU</option>
+                    <option value="uk">UA</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" id="cheatSheetBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span data-i18n="cheatsheet_btn">Шпаргалка в 1 клик</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Основной рабочий контейнер -->
+    <div class="app-container">
+        <!-- ЛЕВАЯ КОЛОНКА (С самого левого края) -->
+        <aside class="sidebar">
+            <h3 data-i18n="topics_heading">Темы</h3>
+            <ul class="topic-list">
+                <li class="topic-item active" data-topic="all" data-i18n="topic_all">Все темы</li>
+                <li class="topic-item" data-topic="abbreviated_multiplication" data-i18n="topic_abbreviated_multiplication">ФСУ</li>
+                <li class="topic-item" data-topic="equations" data-i18n="topic_equations">Уравнения и Параболы</li>
+                <li class="topic-item" data-topic="triangles" data-i18n="topic_triangles">Треугольники</li>
+                <li class="topic-item" data-topic="shapes" data-i18n="topic_shapes">Площади фигур</li>
+                <li class="topic-item" data-topic="perimeters" data-i18n="topic_perimeters">Периметры фигур</li>
+                <li class="topic-item" data-topic="trapezoid" data-i18n="topic_trapezoid">Трапеция</li>
+                <li class="topic-item" data-topic="circles" data-i18n="topic_circles">Окружность и Круг</li>
+                <li class="topic-item" data-topic="progressions" data-i18n="topic_progressions">Прогрессии</li>
+                <li class="topic-item" data-topic="combinatorics" data-i18n="topic_combinatorics">Комбинаторика</li>
+                <li class="topic-item" data-topic="powers_and_logs" data-i18n="topic_powers_and_logs">Степени и Логарифмы</li>
+                <li class="topic-item" data-topic="trigonometry" data-i18n="topic_trigonometry">Тригонометрия</li>
+                <li class="topic-item" data-topic="calculus" data-i18n="topic_calculus">Производные и Интегралы</li>
+                <li class="topic-item" data-topic="vectors" data-i18n="topic_vectors">Векторы</li>
+                <li class="topic-item" data-topic="stereometry" data-i18n="topic_stereometry">Стереометрия</li>
+            </ul>
+        </aside>
+
+        <!-- ПРАВАЯ КОЛОНКА (Основная область) -->
+        <main class="main-content">
+            <div class="hero">
+                <h1 data-i18n="hero_title">Формулы по математике</h1>
+                <p data-i18n="hero_subtitle">Найдите любую формулу за считанные секунды</p>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" class="search-input" data-i18n-placeholder="search_placeholder" placeholder="Поиск формулы по названию...">
+            </div>
+
+            <div class="filters">
+                <div class="view-toggle">
+                    <button class="view-btn active" id="viewAllBtn" data-i18n="view_all">Все формулы</button>
+                    <button class="view-btn" id="viewFavBtn">★ <span data-i18n="view_fav">Избранное</span></button>
+                </div>
+
+                <div class="subject-toggle">
+                    <button class="subject-btn active-all" id="viewAllSubjectsBtn" data-i18n="subject_all">Все предметы</button>
+                    <button class="subject-btn active-algebra" id="viewAlgebraBtn" data-i18n="subject_algebra">Алгебра</button>
+                    <button class="subject-btn active-geometry" id="viewGeometryBtn" data-i18n="subject_geometry">Геометрия</button>
+                </div>
+
+                <div class="class-selector">
+                    <button class="class-chip" data-grade="5">5 класс</button>
+                    <button class="class-chip" data-grade="6">6 класс</button>
+                    <button class="class-chip" data-grade="7">7 класс</button>
+                    <button class="class-chip" data-grade="8">8 класс</button>
+                    <button class="class-chip" data-grade="9">9 класс</button>
+                    <button class="class-chip" data-grade="10">10 класс</button>
+                    <button class="class-chip" data-grade="11">11 класс</button>
+                </div>
+            </div>
+
+            <div id="formulasContainer" class="grid"></div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
