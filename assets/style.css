@@ -128,8 +128,11 @@ html.no-js .js-only { display: none !important; }
 .breadcrumbs a:hover { text-decoration: underline; }
 
 /* --- пошук --- */
-.search-box { position: relative; width: 100%; max-width: 720px; margin: 0 0 24px; }
-body[data-kind="home"] .search-box { margin-left: auto; margin-right: auto; }
+.search-row { display: flex; gap: 10px; align-items: stretch; max-width: 720px; margin: 0 0 24px; }
+.search-row .search-box { flex: 1 1 auto; min-width: 0; max-width: none; margin: 0; }
+.fav-link { flex: 0 0 auto; white-space: nowrap; display: inline-flex; align-items: center; padding: 0 12px; border: 1px solid var(--border, #d0d7de); border-radius: 12px; background: #fff; text-decoration: none; font-weight: 600; }
+@media (max-width: 420px) { .fav-link { padding: 0 10px; font-size: 14px; } }
+body[data-kind="home"] .search-row { margin-left: auto; margin-right: auto; }
 .search-input {
   width: 100%; padding: 14px 18px; font-size: 16px; border: 2px solid var(--border-color);
   border-radius: var(--border-radius); background: #fff; outline: none;
@@ -163,6 +166,9 @@ body[data-kind="home"] .search-box { margin-left: auto; margin-right: auto; }
 .subject-btn.active-geometry { background: var(--geometry-color); color: #fff; }
 .class-selector { display: flex; flex-wrap: wrap; gap: 8px; }
 .class-selector-left { justify-content: flex-start; }
+.home-grades { max-width: 720px; margin: -8px auto 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.home-grades-label { font-weight: 600; font-size: .9rem; color: var(--text-muted, #57606a); }
+.class-chip { text-decoration: none; }
 .class-chip {
   display: inline-block; padding: 6px 15px; border: 1px solid #CBD5E1; border-radius: 20px;
   background: #fff; cursor: pointer; font-size: .88rem; font-weight: 600; color: var(--text-soft);
@@ -336,7 +342,7 @@ body[data-kind="home"] .search-box { margin-left: auto; margin-right: auto; }
 @page { size: A4; margin: 12mm; }
 
 @media print {
-  .skip-link, .lang-suggest, .header, .sidebar, .sidebar-overlay, .search-box, .toolbar, .filters, .toc,
+  .skip-link, .lang-suggest, .header, .sidebar, .sidebar-overlay, .search-row, .toolbar, .filters, .toc,
   .breadcrumbs, .related, .site-footer, .fav-btn, .more-toggle, .calculator-box, .print-tip, .empty-note,
   .topic-intro, .topic-meta, .home-section { display: none !important; }
 
