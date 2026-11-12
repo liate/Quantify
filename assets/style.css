@@ -169,6 +169,7 @@ body[data-kind="home"] .search-row { margin-left: auto; margin-right: auto; }
 .home-grades { max-width: 720px; margin: -8px auto 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
 .home-grades-label { font-weight: 600; font-size: .9rem; color: var(--text-muted, #57606a); }
 .class-chip { text-decoration: none; }
+.home-subjects { max-width: 720px; margin: -12px auto 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
 .class-chip {
   display: inline-block; padding: 6px 15px; border: 1px solid #CBD5E1; border-radius: 20px;
   background: #fff; cursor: pointer; font-size: .88rem; font-weight: 600; color: var(--text-soft);
@@ -192,6 +193,17 @@ body[data-kind="home"] .search-row { margin-left: auto; margin-right: auto; }
   position: relative; min-width: 0; max-width: 100%; background: var(--card-bg);
   border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 20px;
   box-shadow: 0 1px 3px rgba(0,0,0,.05); overflow-wrap: break-word; scroll-margin-top: 16px;
+}
+/* Вирівнювання рядків між сусідніми картками (заголовок / формула / опис не «з'їжджають») */
+@supports (grid-template-rows: subgrid) {
+  @media screen and (min-width: 561px) {
+    .grid { align-items: stretch; }
+    .card:not(.has-table) { display: grid; grid-template-rows: subgrid; row-gap: 0; align-content: start; grid-row: span 6; }
+    .card-compact:not(.has-table) { grid-row: span 4; }
+    .card:not(.has-table) > .grade-badge { justify-self: start; align-self: start; }
+    .card:not(.has-table) > .formula-math { align-self: center; width: 100%; }
+    .card:not(.has-table) > .legend { align-self: start; }
+  }
 }
 .card:target { border-color: var(--algebra-color); box-shadow: 0 0 0 3px rgba(37,99,235,.18); }
 .card.has-table { grid-column: 1 / -1; }
@@ -365,6 +377,7 @@ body[data-kind="home"] .search-row { margin-left: auto; margin-right: auto; }
   .formula-diagram { margin-top: 4px; padding: 4px 0; border: 0; }
   .formula-diagram svg { max-width: 140px; }
   .diagram-caption { display: none; }
+  body[data-kind="sheet"] .formula-diagram, body[data-kind="sheet"] .formula-desc { display: none !important; }
   .sheet-section { margin-bottom: 10px; }
   .sheet-heading { font-size: 11pt; margin-bottom: 6px; }
   .value-table-wrap { overflow: visible; border-radius: 4px; }

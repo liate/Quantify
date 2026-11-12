@@ -157,6 +157,19 @@
     syncControls(); applyFilters();
   }
 
+  /* ---------- головна: фільтр тем за предметом ---------- */
+  var hs = $$("[data-home-subject]");
+  hs.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var v = b.getAttribute("data-home-subject");
+      hs.forEach(function (x) {
+        var on = x === b, k = x.getAttribute("data-home-subject");
+        x.className = "subject-btn" + (on ? " active-" + k : ""); x.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      $$(".topic-card").forEach(function (c) { c.hidden = v !== "all" && c.getAttribute("data-subject") !== v; });
+    });
+  });
+
   /* ---------- друк ---------- */
   $$("[data-print]").forEach(function (b) {
     b.addEventListener("click", function () {
